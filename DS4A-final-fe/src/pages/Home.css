@@ -1,0 +1,6 @@
+.ComponentCard {
+    height: 60vh !important;
+    max-height: 60vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
