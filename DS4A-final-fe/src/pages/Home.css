@@ -4,3 +4,29 @@
     width: 100% !important;
     max-width: 100% !important;
 }
+
+.scrolling-grid{
+    overflow-y: scroll;
+}
+
+.longItem {
+    width: 40vw;
+}
+
+.longItem ion-label {
+    max-width: 30% !important;       
+}
+
+.longItem ion-select {
+    max-width: 70% !important;       
+}
+
+alert-wrapper.sc-ion-alert-md {
+    min-width: 40vw !important;
+    --min-width: 40vw !important;
+}
+
+.sc-ion-alert-md-h{
+    min-width: 40vw !important;
+    --min-width: 40vw !important;
+}

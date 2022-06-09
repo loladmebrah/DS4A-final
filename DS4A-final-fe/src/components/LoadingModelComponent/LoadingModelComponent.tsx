@@ -1,26 +1,36 @@
 import './LoadingModelComponent.css';
 import React, {useState} from 'react';
 import { IonButton, IonCol, IonGrid, IonIcon, IonRow } from '@ionic/react';
-import { camera, trash, close, documentOutline } from 'ionicons/icons';
+import { documentOutline } from 'ionicons/icons';
 
-interface LoadingModelProps { }
+interface LoadingModelProps { 
+    selectedModel: any
+    updateSelectedModel: any
+}
 
-const LoadingModelComponent: React.FC<LoadingModelProps> = () => {
+const LoadingModelComponent: React.FC<LoadingModelProps> = (props) => {
 
     const [selectedFile, setSelectedFile] = useState<any>();
-	const [isFilePicked, setIsFilePicked] = useState(false);
     const [isSelected, setIsSelected] = useState(false);
     
 
 	const changeHandler = (event: any) => {
+        setIsSelected(true);
 		setSelectedFile(event.target.files[0]);
-		setIsSelected(true);
+        //console.log("sF", selectedFile);
+        
+		
 	};
 
 	const handleSubmission = () => {
-        const formData = new FormData();
+        //props.updateSelectedModel(selectedFile)
+        //props.updateSelectedModel('none')
+        console.log("sF", selectedFile);
+        props.updateSelectedModel(selectedFile? selectedFile: 'none')
+        
+        /* const formData = new FormData();
         formData.append('File', selectedFile, 'model');
-        console.log("submission", formData, selectedFile);
+        console.log("submission", formData, selectedFile); */
 
         /* fetch(
                 'https://freeimage.host/api/1/upload?key=<YOUR_API_KEY>',
@@ -42,9 +52,10 @@ const LoadingModelComponent: React.FC<LoadingModelProps> = () => {
     const removeSubmission = ()=>{
         setIsSelected(false);
         setSelectedFile(null);
+        
     }
 
-  return (
+    return (
             <IonGrid>
                 <IonRow>
                     <IonCol>
@@ -73,7 +84,7 @@ const LoadingModelComponent: React.FC<LoadingModelProps> = () => {
                 <IonRow>
                     <IonCol></IonCol>
                     <IonCol>
-                        <IonButton expand='full' shape='round' onClick={handleSubmission}>Submit</IonButton>
+                        <IonButton expand='full' shape='round' onClick={handleSubmission}>Set Model</IonButton>
                     </IonCol>
                     <IonCol>
                         <IonButton expand='full' shape='round' onClick={removeSubmission}>Clean</IonButton>
@@ -81,7 +92,7 @@ const LoadingModelComponent: React.FC<LoadingModelProps> = () => {
                     <IonCol></IonCol>
                 </IonRow>
             </IonGrid> 
-     )
+    )
 };
 
 export default LoadingModelComponent;

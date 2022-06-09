@@ -1,0 +1,46 @@
+.img-div {
+    width: 20vh !important;
+    height: 20vh !important;
+}
+
+.carousel .slide img { display: flex !important;  justify-content: center !important; margin-left: 10vh !important;}
+
+.centered_div{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.form__file input {
+    display: none;
+}
+
+.form__file .form__file-label {
+    margin-left: 30%;
+    margin-right: 30%;
+    display: block;
+    background: transparent;
+    color: var(--color-dark);
+    border: 1px solid black;/*var(--color-border);*/
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-top: 20PX;
+}
+
+.form__file ion-icon {
+    font-size: 40px;
+    --ionicon-stroke-width: 20px;
+}
+
+.form__file p {
+    font-family: var(--font-fira);
+    text-align: center;
+    margin-bottom: 0;
+}
