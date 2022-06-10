@@ -4,11 +4,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { IonButton, IonCol, IonGrid, IonIcon, IonRow } from '@ionic/react';
 import { camera, trash, close, documentOutline } from 'ionicons/icons';
-//require('react-img-carousel/lib/carousel.css');
 
-interface LoadingModelProps { }
+interface LoadingModelProps { 
+    updateSelectedDataset: any
+}
 
-const LoadingCSDatasetComponent: React.FC<LoadingModelProps> = () => {
+const LoadingCSDatasetComponent: React.FC<LoadingModelProps> = (props) => {
     const [images, setImages] = useState<any>([]);
     const [imageURLS, setImageURLs] = useState<any>([]);
     const [isSelected, setIsSelected] = useState(false);
@@ -35,11 +36,19 @@ const LoadingCSDatasetComponent: React.FC<LoadingModelProps> = () => {
     function onImageChange(e: any) {
       setImages([...e.target.files]);
       setIsSelected(true);
+      props.updateSelectedDataset({
+          baseImages: images,
+          stegoImages: sImages
+      })
     }
 
     function onSImageChange(e: any){
         setSImages([...e.target.files]);
         setIsSSelected(true);
+        props.updateSelectedDataset({
+            baseImages: images,
+            stegoImages: sImages
+        })
     }
   
     return (

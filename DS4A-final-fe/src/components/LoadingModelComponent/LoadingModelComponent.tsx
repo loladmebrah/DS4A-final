@@ -18,7 +18,7 @@ const LoadingModelComponent: React.FC<LoadingModelProps> = (props) => {
         setIsSelected(true);
 		setSelectedFile(event.target.files[0]);
         //console.log("sF", selectedFile);
-        
+        //props.updateSelectedModel(selectedFile? selectedFile: 'none')
 		
 	};
 
@@ -52,7 +52,7 @@ const LoadingModelComponent: React.FC<LoadingModelProps> = (props) => {
     const removeSubmission = ()=>{
         setIsSelected(false);
         setSelectedFile(null);
-        
+        props.updateSelectedModel('none');
     }
 
     return (
@@ -66,8 +66,8 @@ const LoadingModelComponent: React.FC<LoadingModelProps> = (props) => {
                             </label>
                             <input type="file" id='checkBank__file' name="file" onChange={changeHandler} />
                             {isSelected ? (
-                                <div>
-                                    <p>Filename: {selectedFile.name}</p>
+                                <div className='wide-div'>
+                                    <p>Filename: {selectedFile.name.slice(0,10)+'...'+selectedFile.name.slice(selectedFile.name.length - 4)}</p>
                                     <p>Filetype: {selectedFile.type}</p>
                                     <p>Size in bytes: {selectedFile.size}</p>
                                     <p>
@@ -84,7 +84,7 @@ const LoadingModelComponent: React.FC<LoadingModelProps> = (props) => {
                 <IonRow>
                     <IonCol></IonCol>
                     <IonCol>
-                        <IonButton expand='full' shape='round' onClick={handleSubmission}>Set Model</IonButton>
+                        <IonButton expand='full' shape='round' onClick={handleSubmission}>Save Model</IonButton>
                     </IonCol>
                     <IonCol>
                         <IonButton expand='full' shape='round' onClick={removeSubmission}>Clean</IonButton>

@@ -1,13 +1,14 @@
 
 .centered_div{
-    width: 40%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
 
-.form__file input {
+.wide-div {
     /*display: none;*/
+    width: 200px;
 }
 
 .form__file .form__file-label {

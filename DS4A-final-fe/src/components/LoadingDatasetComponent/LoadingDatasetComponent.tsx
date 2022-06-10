@@ -6,9 +6,11 @@ import { IonButton, IonCol, IonGrid, IonIcon, IonRow } from '@ionic/react';
 import { camera, trash, close, documentOutline } from 'ionicons/icons';
 //require('react-img-carousel/lib/carousel.css');
 
-interface LoadingModelProps { }
+interface LoadingModelProps { 
+    updateSelectedDataset: any
+}
 
-const LoadingDatasetComponent: React.FC<LoadingModelProps> = () => {
+const LoadingDatasetComponent: React.FC<LoadingModelProps> = (props) => {
     const [images, setImages] = useState<any>([]);
     const [imageURLS, setImageURLs] = useState<any>([]);
     const [isSelected, setIsSelected] = useState(false);
@@ -23,6 +25,7 @@ const LoadingDatasetComponent: React.FC<LoadingModelProps> = () => {
     function onImageChange(e: any) {
       setImages([...e.target.files]);
       setIsSelected(true);
+      props.updateSelectedDataset(images);
     }
   
     return (
